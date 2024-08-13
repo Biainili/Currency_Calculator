@@ -78,10 +78,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Курс Валют</h1>
+      <h1>Exchange Rate</h1>
       <div className="raet_contaiber">
         <div className="i_have">
-          <label htmlFor="first_Value"> У меня есть</label>
+          <label htmlFor="first_Value">I have</label>
           <select id={"first_Value"} onChange={handleBaseChange}>
             <option value={"USD"}>USD</option>
             <option value={"EUR"}>EUR</option>
@@ -98,7 +98,7 @@ function App() {
         <div className="line"></div>
         <div>
           <div className="i_want">
-            <label htmlFor="second_Value"> Я Хочу</label>
+            <label htmlFor="second_Value">I want</label>
             <select id={"second_Value"} onChange={handleTargetChange}>
               <option value={"USD"}>USD</option>
               <option value={"EUR"}>EUR</option>
