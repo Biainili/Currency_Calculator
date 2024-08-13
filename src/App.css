@@ -2,12 +2,10 @@ body {
   overflow: hidden;
   height: 100vh;
   background-repeat: no-repeat;
-  background: linear-gradient(
-    135deg,
-    rgba(30, 31, 31, 1) 0%,
-    rgba(90, 91, 91, 1) 50%,
-    rgba(30, 31, 31, 1) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(30, 31, 31, 1) 0%,
+      rgba(90, 91, 91, 1) 50%,
+      rgba(30, 31, 31, 1) 100%);
 }
 
 .App {
@@ -23,7 +21,7 @@ body {
 .App h1 {
   text-transform: uppercase;
   text-align: center;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.2em;
   color: rgb(240, 223, 200);
   white-space: 2px;
   position: relative;
@@ -40,6 +38,7 @@ body {
   padding: 20px;
   border-radius: 5px;
   background-color: rgb(184, 184, 182);
+
 }
 
 .i_want {
@@ -47,13 +46,21 @@ body {
 }
 
 .i_have label {
-  text-shadow: 2px 2px 4px rgba(7, 7, 7, 0.5);
+  text-transform: uppercase;
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: rgb(39, 39, 39);
+  text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5);
   background: transparent;
   grid-column: 1 / span 2;
 }
 
 .i_want label {
-  text-shadow: 2px 2px 4px rgba(7, 7, 7, 0.5);
+  text-transform: uppercase;
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: rgb(39, 39, 39);
+  text-shadow: 2px 2px 4px rgba(12, 40, 223, 0.5);
   background: transparent;
   grid-column: 1 / span 2;
 }
@@ -61,11 +68,22 @@ body {
 .i_have select {
   background: transparent;
   grid-column: 1;
+  border-radius: 4px;
+}
+
+.i_have select:focus {
+  box-shadow: 0px 0px 0px 2px rgba(255, 0, 0, 0.5);
+  outline: none;
+}
+.i_want select:focus {
+  box-shadow: 0px 0px 0px 2px rgba(12, 40, 223, 0.5);
+  outline: none;
 }
 
 .i_want select {
   background: transparent;
   grid-column: 1;
+  border-radius: 4px;
 }
 
 .line {
@@ -76,9 +94,10 @@ body {
 }
 
 .raet_contaiber {
+  align-self: center;
   position: relative;
   z-index: 2;
-  padding: 40px;
+  padding: 30px;
   border: 2px solid rgb(226, 230, 10, 0.8);
   border-radius: 4px;
   background: rgb(54, 54, 54);
@@ -102,6 +121,18 @@ body {
   border: 1px solid black;
   padding: 5px;
   border-radius: 4px;
+  font-family: fangsong;
+  font-size: 17px;
+}
+
+.i_have input:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 2px rgba(255, 0, 0, 0.5);
+}
+
+.i_want input:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 2px rgba(12, 40, 223, 0.5);
 }
 
 .dollar {
@@ -117,5 +148,12 @@ body {
 @keyframes fall {
   to {
     transform: translateY(200vh);
+  }
+}
+
+
+@media (max-width: 428px) {
+  .raet_contaiber {
+    padding: 15px;
   }
 }
