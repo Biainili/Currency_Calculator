@@ -66,6 +66,7 @@ body {
 }
 
 .i_have select {
+  border: 1px solid black;
   background: transparent;
   grid-column: 1;
   border-radius: 4px;
@@ -81,6 +82,7 @@ body {
 }
 
 .i_want select {
+  border: 1px solid black;
   background: transparent;
   grid-column: 1;
   border-radius: 4px;
@@ -123,6 +125,7 @@ body {
   border-radius: 4px;
   font-family: fangsong;
   font-size: 17px;
+  box-shadow: 0px 0px 2px 3px rgba(145, 145, 145, 0.5);
 }
 
 .i_have input:focus {

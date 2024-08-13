@@ -48,7 +48,7 @@ function App() {
 
   useEffect(() => {
     const getRates = async () => {
-      const targets = ["USD", "EUR", "GBP", "CHF"];
+      const targets = ["USD", "EUR", "GBP", "CHF", "AMD", "RUB"];
       const data = await fetchData(base, targets);
       setRates(data);
     };
@@ -87,6 +87,8 @@ function App() {
             <option value={"EUR"}>EUR</option>
             <option value={"GBP"}>GBP</option>
             <option value={"CHF"}>CHF</option>
+            <option value={"AMD"}>AMD</option>
+            <option value={"RUB"}>RUB</option>
           </select>
           <input
             id={"in_id"}
@@ -104,6 +106,8 @@ function App() {
               <option value={"EUR"}>EUR</option>
               <option value={"GBP"}>GBP</option>
               <option value={"CHF"}>CHF</option>
+              <option value={"AMD"}>AMD</option>
+              <option value={"RUB"}>RUB</option>
             </select>
             <input
               id={"out_id"}
