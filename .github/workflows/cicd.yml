@@ -19,11 +19,11 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: aws-es2
+    runs-on: self-hosted
     steps:
       - name: Pull image from docker hub
         run: docker pull biainili/reactjs:latest
-      - name: Deletex Old Container
+      - name: Delete Old Container
         run: docker rm -f reactContainer
       - name: Run docker conatiner
         run: docker run -d -p 3000:80 --name reactContainer biainili/reactjs
