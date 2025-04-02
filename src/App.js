@@ -118,6 +118,7 @@ function App() {
           </div>
         </div>
       </div>
+      <h1>Marda 30 000 u 0 makardak Yngerysss</h1>
     </div>
   );
 }

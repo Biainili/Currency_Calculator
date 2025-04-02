@@ -1,0 +1,29 @@
+name: CICD
+on:
+  push:
+  branches:
+    - deploy-to-es2
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+      - name: Login to Docker Hub
+        uses: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build Docker Image
+        run: docker build -t biainili/reactjs .
+      - name: Publish image to docker hub
+        run: docker push biainili/reactjs:latest
+
+  deploy:
+    needs: build
+    runs-on: aws-es2
+    steps:
+      - name: Pull image from docker hub
+        run: docker pull biainili/reactjs:latest
+      - name: Delete Ild Container
+        run: docker rm -f reactContainer
+      - name: Run docker conatiner 
+        run: docker run -d -p 3000:80 --name reactConatiner biainili/reactjs
