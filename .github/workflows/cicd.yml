@@ -23,7 +23,7 @@ jobs:
     steps:
       - name: Pull image from docker hub
         run: docker pull biainili/reactjs:latest
-      - name: Delete Old Container
+      - name: Deletex Old Container
         run: docker rm -f reactContainer
       - name: Run docker conatiner
         run: docker run -d -p 3000:80 --name reactContainer biainili/reactjs
