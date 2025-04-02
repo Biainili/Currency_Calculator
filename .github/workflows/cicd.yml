@@ -1,8 +1,8 @@
 name: CICD
 on:
   push:
-  branches:
-    - deploy-to-es2
+    branches:
+      - deploy-to-es2
 
 jobs:
   build:
@@ -25,5 +25,5 @@ jobs:
         run: docker pull biainili/reactjs:latest
       - name: Delete Ild Container
         run: docker rm -f reactContainer
-      - name: Run docker conatiner 
+      - name: Run docker conatiner
         run: docker run -d -p 3000:80 --name reactConatiner biainili/reactjs
