@@ -1,5 +1,4 @@
 name: CICD
-
 on:
   push:
     branches:
@@ -11,26 +10,20 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v3
-
       - name: Login to Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Docker Image
         run: docker build -t biainili/reactjs .
-
-      - name: Publish image to Docker Hub
+      - name: Publish image to docker hub
         run: docker push biainili/reactjs:latest
 
   deploy:
     needs: build
-    runs-on: self-hosted # или 'ubuntu-latest', если без self-hosted
-
+    runs-on: aws-es2
     steps:
-      - name: Pull image from Docker Hub
+      - name: Pull image from docker hub
         run: docker pull biainili/reactjs:latest
-
-      - name: Delete old container
-        run: docker rm -f reactContainer || true
-
-      - name: Run Docker container
-        run: docker run -d -p 3000:80 --name reactContainer biainili/reactjs:latest
+      - name: Delete Old Container
+        run: docker rm -f reactContainer
+      - name: Run docker conatiner
+        run: docker run -d -p 3000:80 --name reactContainer biainili/reactjs
